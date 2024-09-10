@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 0  # Spin up on-demand (via HPA) based on requests
+  replicas: 1  # Spin up on-demand (via HPA) based on requests
   selector:
     matchLabels:
       app: backend
