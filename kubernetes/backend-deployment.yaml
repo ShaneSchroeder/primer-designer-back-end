@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 0  # Spin up on-demand (via HPA) based on requests
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: 992382821771.dkr.ecr.us-east-2.amazonaws.com/primer-designer-back-end:latest
+        ports:
+        - containerPort: 8000
