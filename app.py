@@ -7,9 +7,11 @@ import primer3
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
+    "http://localhost:5173",  # For local development
+    "http://frontend-service",  # Frontend service in Kubernetes
+    "http://your-frontend-url.com",  # If deployed externally
+    "*",  # Allow all origins for now (can be restricted in production)
 ]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
